@@ -1,0 +1,32 @@
+{
+    "GREEN": [
+        {
+            "id": "g1",
+            "text": "What is your favorite color?"
+        },
+        {
+            "id": "g2",
+            "text": "What is your favorite hobby?"
+        }
+    ],
+    "YELLOW": [
+        {
+            "id": "y1",
+            "text": "What is your happiest memory?"
+        },
+        {
+            "id": "y2",
+            "text": "What is your dream job?"
+        }
+    ],
+    "RED": [
+        {
+            "id": "r1",
+            "text": "What is your biggest fear?"
+        },
+        {
+            "id": "r2",
+            "text": "What is something you regret?"
+        }
+    ]
+}
