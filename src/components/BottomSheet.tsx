@@ -31,14 +31,14 @@ export function BottomSheet({ isOpen, onClose, children }: BottomSheetProps) {
     if (isOpen) {
       opacity.value = withTiming(1, { duration: 200 });
       translateY.value = withSpring(0, {
-        damping: 25,
-        stiffness: 300,
+        damping: 50,
+        stiffness: 150,
       });
     } else {
       opacity.value = withTiming(0, { duration: 200 });
       translateY.value = withSpring(height, {
-        damping: 25,
-        stiffness: 300,
+        damping: 50,
+        stiffness: 150,
       });
     }
   }, [isOpen, height]);

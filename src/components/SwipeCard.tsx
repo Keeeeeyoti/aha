@@ -32,7 +32,7 @@ export function SwipeCard({
 
   // Animate in on mount
   React.useEffect(() => {
-    scale.value = withSpring(1, { damping: 20, stiffness: 300 });
+    scale.value = withSpring(1, { damping: 50, stiffness: 150 });
     opacity.value = withTiming(1, { duration: 300 });
   }, []);
 
@@ -57,7 +57,7 @@ export function SwipeCard({
         opacity.value = withTiming(0, { duration: 200 });
       } else {
         // Spring back
-        translateX.value = withSpring(0, { damping: 20, stiffness: 300 });
+        translateX.value = withSpring(0, { damping: 50, stiffness: 150 });
       }
     });
 

@@ -47,11 +47,11 @@ export default function Home() {
 
     // Button animation
     buttonOpacity.value = withTiming(1, { duration: 500, easing: Easing.out(Easing.ease) });
-    buttonY.value = withSpring(0, { damping: 20, stiffness: 200 });
+    buttonY.value = withSpring(0, { damping: 50, stiffness: 120 });
 
     // Profile animation
     profileOpacity.value = withTiming(1, { duration: 500 });
-    profileX.value = withSpring(0, { damping: 20, stiffness: 200 });
+    profileX.value = withSpring(0, { damping: 50, stiffness: 120 });
   }, []);
 
   const logoStyle = useAnimatedStyle(() => ({

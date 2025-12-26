@@ -42,20 +42,20 @@ export default function Players() {
   useEffect(() => {
     // Back button animation
     backOpacity.value = withTiming(1, { duration: 300 });
-    backX.value = withSpring(0, { damping: 20, stiffness: 200 });
+    backX.value = withSpring(0, { damping: 50, stiffness: 120 });
 
     // Title animation
     titleOpacity.value = withDelay(100, withTiming(1, { duration: 300 }));
     titleY.value = withDelay(
       100,
-      withSpring(0, { damping: 20, stiffness: 200 })
+      withSpring(0, { damping: 50, stiffness: 120 })
     );
 
     // Start button animation
     startButtonOpacity.value = withDelay(300, withTiming(1, { duration: 300 }));
     startButtonY.value = withDelay(
       300,
-      withSpring(0, { damping: 20, stiffness: 200 })
+      withSpring(0, { damping: 50, stiffness: 120 })
     );
   }, []);
 
@@ -134,7 +134,7 @@ export default function Players() {
             key={index}
             entering={FadeIn.delay(index * 50)}
             exiting={FadeOutLeft.duration(200)}
-            layout={Layout.springify().damping(20).stiffness(200)}
+            layout={Layout.springify().damping(50).stiffness(120)}
             style={styles.inputContainer}
           >
             <Text style={styles.inputLabel}>Player {index + 1}</Text>

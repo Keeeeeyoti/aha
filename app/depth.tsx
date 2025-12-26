@@ -37,17 +37,17 @@ export default function Depth() {
   useEffect(() => {
     // Back button animation
     backOpacity.value = withTiming(1, { duration: 300 });
-    backX.value = withSpring(0, { damping: 20, stiffness: 200 });
+    backX.value = withSpring(0, { damping: 50, stiffness: 120 });
 
     // Title animation
     titleOpacity.value = withDelay(100, withTiming(1, { duration: 300 }));
-    titleY.value = withDelay(100, withSpring(0, { damping: 20, stiffness: 200 }));
+    titleY.value = withDelay(100, withSpring(0, { damping: 50, stiffness: 120 }));
 
     // Button animations - staggered
     depths.forEach((_, index) => {
       const delay = 150 + index * 100;
       buttonOpacities[index].value = withDelay(delay, withTiming(1, { duration: 300 }));
-      buttonYs[index].value = withDelay(delay, withSpring(0, { damping: 20, stiffness: 200 }));
+      buttonYs[index].value = withDelay(delay, withSpring(0, { damping: 50, stiffness: 120 }));
     });
   }, []);
 
