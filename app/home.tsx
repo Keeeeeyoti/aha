@@ -1,15 +1,15 @@
-import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, {
+  Easing,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
-  withTiming,
   withRepeat,
   withSequence,
-  Easing,
+  withSpring,
+  withTiming,
 } from "react-native-reanimated";
-import { useEffect } from "react";
 import { OrigamiBackground } from "../src/components";
 import { colors, shadows } from "../src/theme";
 
@@ -24,6 +24,8 @@ export default function Home() {
   const logoOpacity = useSharedValue(0);
   const logoScale = useSharedValue(0.9);
   const logoY = useSharedValue(0);
+  const taglineOpacity = useSharedValue(0);
+  const taglineY = useSharedValue(10);
   const buttonOpacity = useSharedValue(0);
   const buttonY = useSharedValue(20);
   const profileOpacity = useSharedValue(0);
@@ -45,6 +47,12 @@ export default function Home() {
       true
     );
 
+    // Tagline animation (appears after logo)
+    setTimeout(() => {
+      taglineOpacity.value = withTiming(1, { duration: 600, easing: Easing.out(Easing.ease) });
+      taglineY.value = withSpring(0, { damping: 50, stiffness: 100 });
+    }, 300);
+
     // Button animation
     buttonOpacity.value = withTiming(1, { duration: 500, easing: Easing.out(Easing.ease) });
     buttonY.value = withSpring(0, { damping: 50, stiffness: 120 });
@@ -57,6 +65,11 @@ export default function Home() {
   const logoStyle = useAnimatedStyle(() => ({
     opacity: logoOpacity.value,
     transform: [{ scale: logoScale.value }, { translateY: logoY.value }],
+  }));
+
+  const taglineStyle = useAnimatedStyle(() => ({
+    opacity: taglineOpacity.value,
+    transform: [{ translateY: taglineY.value }],
   }));
 
   const buttonStyle = useAnimatedStyle(() => ({
@@ -93,6 +106,9 @@ export default function Home() {
           style={[styles.logo, logoStyle]}
           resizeMode="contain"
         />
+        <Animated.Text style={[styles.tagline, taglineStyle]}>
+          Conversations to find out who's really here.
+        </Animated.Text>
       </View>
 
       {/* Play button */}
@@ -100,7 +116,7 @@ export default function Home() {
         style={[styles.playButton, buttonStyle]}
         onPress={handlePlayPress}
       >
-        <Text style={styles.playButtonText}>Play</Text>
+        <Text style={styles.playButtonText}>Begin</Text>
       </AnimatedPressable>
     </View>
   );
@@ -137,6 +153,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 360,
     height: 360,
+  },
+  tagline: {
+    fontSize: 28,
+    fontFamily: "Caveat_500Medium",
+    color: colors.foreground,
+    marginTop: -20,
+    letterSpacing: 1,
+    opacity: 0.85,
   },
   playButton: {
     backgroundColor: colors.cardOverlay95,
