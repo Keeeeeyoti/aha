@@ -21,6 +21,8 @@ export default function Home() {
   const router = useRouter();
 
   // Animation values
+  const titleOpacity = useSharedValue(0);
+  const titleY = useSharedValue(-10);
   const logoOpacity = useSharedValue(0);
   const logoScale = useSharedValue(0.9);
   const logoY = useSharedValue(0);
@@ -33,6 +35,10 @@ export default function Home() {
   const buttonScale = useSharedValue(1);
 
   useEffect(() => {
+    // Title animation
+    titleOpacity.value = withTiming(1, { duration: 600, easing: Easing.out(Easing.ease) });
+    titleY.value = withSpring(0, { damping: 50, stiffness: 100 });
+
     // Logo animation
     logoOpacity.value = withTiming(1, { duration: 500 });
     logoScale.value = withTiming(1, { duration: 500 });
@@ -61,6 +67,11 @@ export default function Home() {
     profileOpacity.value = withTiming(1, { duration: 500 });
     profileX.value = withSpring(0, { damping: 50, stiffness: 120 });
   }, []);
+
+  const titleStyle = useAnimatedStyle(() => ({
+    opacity: titleOpacity.value,
+    transform: [{ translateY: titleY.value }],
+  }));
 
   const logoStyle = useAnimatedStyle(() => ({
     opacity: logoOpacity.value,
@@ -94,6 +105,9 @@ export default function Home() {
     <View style={styles.container}>
       <OrigamiBackground variant="sky" />
 
+      {/* App title - top center */}
+      <Animated.Text style={[styles.title, titleStyle]}>aha</Animated.Text>
+
       {/* Profile icon - top right */}
       <AnimatedPressable style={[styles.profileButton, profileStyle]}>
         <Text style={styles.profileEmoji}>:)</Text>
@@ -107,7 +121,7 @@ export default function Home() {
           resizeMode="contain"
         />
         <Animated.Text style={[styles.tagline, taglineStyle]}>
-          Conversations to find out who's really here.
+          {"Conversations to find out\nwho's really here."}
         </Animated.Text>
       </View>
 
@@ -127,6 +141,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
   },
+  title: {
+    fontSize: 28,
+    fontFamily: "Nunito_400Regular",
+    color: colors.foreground,
+    textAlign: "center",
+    marginTop: 16,
+    letterSpacing: 3,
+    opacity: 0.8,
+  },
   profileButton: {
     position: "absolute",
     top: 24,
@@ -142,8 +165,8 @@ const styles = StyleSheet.create({
     ...shadows.cardHover,
   },
   profileEmoji: {
-    fontSize: 24,
-    fontFamily: "Caveat_500Medium",
+    fontSize: 18,
+    fontFamily: "Nunito_500Medium",
   },
   logoContainer: {
     flex: 1,
@@ -155,12 +178,14 @@ const styles = StyleSheet.create({
     height: 360,
   },
   tagline: {
-    fontSize: 28,
-    fontFamily: "Caveat_500Medium",
+    fontSize: 18,
+    fontFamily: "Nunito_400Regular",
     color: colors.foreground,
-    marginTop: -20,
-    letterSpacing: 1,
-    opacity: 0.85,
+    marginTop: 8,
+    letterSpacing: 0.3,
+    lineHeight: 26,
+    textAlign: "center",
+    opacity: 0.75,
   },
   playButton: {
     backgroundColor: colors.cardOverlay95,
@@ -172,9 +197,10 @@ const styles = StyleSheet.create({
     ...shadows.button,
   },
   playButtonText: {
-    fontSize: 24,
-    fontFamily: "Caveat_600SemiBold",
+    fontSize: 17,
+    fontFamily: "Nunito_600SemiBold",
     color: colors.foreground,
+    letterSpacing: 0.5,
   },
 });
 

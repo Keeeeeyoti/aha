@@ -1,18 +1,24 @@
-import { useEffect } from "react";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
 import {
-  useFonts,
   Caveat_400Regular,
   Caveat_500Medium,
   Caveat_600SemiBold,
   Caveat_700Bold,
+  useFonts,
 } from "@expo-google-fonts/caveat";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SessionProvider } from "../src/context/SessionContext";
+import {
+  Nunito_400Regular,
+  Nunito_500Medium,
+  Nunito_600SemiBold,
+  Nunito_700Bold,
+} from "@expo-google-fonts/nunito";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import "../global.css";
+import { SessionProvider } from "../src/context/SessionContext";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -25,6 +31,10 @@ export default function RootLayout() {
     Caveat_500Medium,
     Caveat_600SemiBold,
     Caveat_700Bold,
+    Nunito_400Regular,
+    Nunito_500Medium,
+    Nunito_600SemiBold,
+    Nunito_700Bold,
   });
 
   useEffect(() => {
