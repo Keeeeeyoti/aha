@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: -250,      // 👈 Adjust this to move CLOUD up/down
+    marginTop: -150,      // 👈 Adjust this to move CLOUD up/down
   },
   logo: {
     width: 280,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: "Quicksand_500Medium",
     color: "#FFFFFF",
-    marginBottom: 100,    // 👈 Adjust this to move TAGLINE up/down (from button)
+    marginBottom: 50,    // 👈 Adjust this to move TAGLINE up/down (from button)
     letterSpacing: 0.3,
     lineHeight: 26,
     textAlign: "center",
