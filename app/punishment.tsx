@@ -18,10 +18,12 @@ export default function Punishment() {
   const currentPlayer = getCurrentPlayer();
 
   useEffect(() => {
+    // Only check on mount, not on currentPlayer changes
     if (!currentPlayer) {
       router.replace("/home");
     }
-  }, [currentPlayer]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleDone = useCallback(() => {
     nextPromptAfterPunishment();

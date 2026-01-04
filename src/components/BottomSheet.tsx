@@ -1,18 +1,17 @@
 import React from "react";
 import {
-  View,
   Modal,
+  Platform,
   Pressable,
   StyleSheet,
   useWindowDimensions,
-  Platform,
+  View,
 } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
-  runOnJS,
+  withTiming
 } from "react-native-reanimated";
 
 interface BottomSheetProps {

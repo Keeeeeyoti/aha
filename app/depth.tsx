@@ -29,8 +29,6 @@ export default function Depth() {
   const backX = useSharedValue(-20);
   const titleOpacity = useSharedValue(0);
   const titleY = useSharedValue(-20);
-  const buttonOpacities = depths.map(() => useSharedValue(0));
-  const buttonYs = depths.map(() => useSharedValue(20));
 
   useEffect(() => {
     // Back button animation
@@ -40,13 +38,6 @@ export default function Depth() {
     // Title animation
     titleOpacity.value = withDelay(100, withTiming(1, { duration: 300 }));
     titleY.value = withDelay(100, withSpring(0, { damping: 50, stiffness: 120 }));
-
-    // Button animations - staggered
-    depths.forEach((_, index) => {
-      const delay = 150 + index * 100;
-      buttonOpacities[index].value = withDelay(delay, withTiming(1, { duration: 300 }));
-      buttonYs[index].value = withDelay(delay, withSpring(0, { damping: 50, stiffness: 120 }));
-    });
   }, []);
 
   const backStyle = useAnimatedStyle(() => ({
@@ -86,22 +77,15 @@ export default function Depth() {
 
       {/* Depth options */}
       <View style={styles.optionsContainer}>
-        {depths.map((depth, index) => {
-          const buttonStyle = useAnimatedStyle(() => ({
-            opacity: buttonOpacities[index].value,
-            transform: [{ translateY: buttonYs[index].value }],
-          }));
-
-          return (
-            <AnimatedPressable
-              key={depth.value}
-              style={[styles.optionButton, buttonStyle]}
-              onPress={() => handleSelect(depth.value)}
-            >
-              <Text style={styles.optionButtonText}>{depth.label}</Text>
-            </AnimatedPressable>
-          );
-        })}
+        {depths.map((depth) => (
+          <Pressable
+            key={depth.value}
+            style={styles.optionButton}
+            onPress={() => handleSelect(depth.value)}
+          >
+            <Text style={styles.optionButtonText}>{depth.label}</Text>
+          </Pressable>
+        ))}
       </View>
 
       {/* Spacer */}

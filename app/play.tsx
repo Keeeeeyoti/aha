@@ -22,11 +22,12 @@ export default function Play() {
   const currentPlayer = getCurrentPlayer();
 
   useEffect(() => {
-    // Redirect to home if no session
+    // Redirect to home if no session (only on mount)
     if (!session || !session.currentPrompt) {
       router.replace("/home");
     }
-  }, [session]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only check on mount, not on session changes
 
   const handleSkip = useCallback(() => {
     const { punishment } = skipPrompt();

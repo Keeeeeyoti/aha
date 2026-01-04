@@ -34,8 +34,6 @@ export default function Players() {
   const backX = useSharedValue(-20);
   const titleOpacity = useSharedValue(0);
   const titleY = useSharedValue(-20);
-  const startButtonOpacity = useSharedValue(0);
-  const startButtonY = useSharedValue(20);
 
   useEffect(() => {
     // Back button animation
@@ -48,13 +46,6 @@ export default function Players() {
       100,
       withSpring(0, { damping: 50, stiffness: 120 })
     );
-
-    // Start button animation
-    startButtonOpacity.value = withDelay(300, withTiming(1, { duration: 300 }));
-    startButtonY.value = withDelay(
-      300,
-      withSpring(0, { damping: 50, stiffness: 120 })
-    );
   }, []);
 
   const backStyle = useAnimatedStyle(() => ({
@@ -65,11 +56,6 @@ export default function Players() {
   const titleStyle = useAnimatedStyle(() => ({
     opacity: titleOpacity.value,
     transform: [{ translateY: titleY.value }],
-  }));
-
-  const startButtonStyle = useAnimatedStyle(() => ({
-    opacity: startButtonOpacity.value,
-    transform: [{ translateY: startButtonY.value }],
   }));
 
   const addPlayer = () => {
@@ -163,17 +149,16 @@ export default function Players() {
       </ScrollView>
 
       {/* Start button */}
-      <AnimatedPressable
+      <Pressable
         style={[
           styles.startButton,
-          startButtonStyle,
           !canStart && styles.startButtonDisabled,
         ]}
         onPress={handleStart}
         disabled={!canStart}
       >
         <Text style={styles.startButtonText}>who's really here?</Text>
-      </AnimatedPressable>
+      </Pressable>
     </View>
   );
 }
