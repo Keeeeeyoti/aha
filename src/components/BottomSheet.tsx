@@ -14,7 +14,6 @@ import Animated, {
   withTiming,
   runOnJS,
 } from "react-native-reanimated";
-import { colors } from "../theme";
 
 interface BottomSheetProps {
   isOpen: boolean;
@@ -85,26 +84,25 @@ const styles = StyleSheet.create({
   },
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: colors.foregroundOverlay,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   sheet: {
-    backgroundColor: colors.background,
+    backgroundColor: "#4A7A7A",
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
-    borderTopWidth: 2,
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
-    borderColor: colors.foreground,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     padding: 24,
     paddingBottom: Platform.OS === "ios" ? 40 : 24,
   },
   handle: {
     width: 48,
     height: 4,
-    backgroundColor: colors.mutedForeground,
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
     borderRadius: 2,
     alignSelf: "center",
     marginBottom: 24,
   },
 });
-

@@ -1,11 +1,10 @@
-import { useState, useCallback } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { OrigamiBackground, BottomSheet, SwipeCard, SwipeHints } from "../src/components";
+import { useCallback, useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { BottomSheet, OrigamiBackground, SwipeCard, SwipeHints } from "../src/components";
 import { useSession } from "../src/context/SessionContext";
 import { getRandomEveryonePrompt } from "../src/data/prompts";
-import { colors, shadows } from "../src/theme";
-import { Feather } from "@expo/vector-icons";
 
 export default function Everyone() {
   const router = useRouter();
@@ -27,14 +26,14 @@ export default function Everyone() {
 
   return (
     <View style={styles.container}>
-      <OrigamiBackground variant="calm" />
+      <OrigamiBackground variant="teal" />
 
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.title}>Everyone:</Text>
 
         <Pressable style={styles.menuButton} onPress={() => setShowMenu(true)}>
-          <Feather name="more-horizontal" size={24} color={colors.foreground} />
+          <Feather name="more-horizontal" size={24} color="#FFFFFF" />
         </Pressable>
       </View>
 
@@ -126,20 +125,19 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   title: {
-    fontSize: 30,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 24,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
   },
   menuButton: {
     width: 48,
     height: 48,
     borderRadius: 16,
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     alignItems: "center",
     justifyContent: "center",
-    ...shadows.cardHover,
   },
   cardArea: {
     flex: 1,
@@ -152,36 +150,34 @@ const styles = StyleSheet.create({
     maxWidth: 380,
   },
   card: {
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     padding: 24,
     minHeight: 300,
     alignItems: "center",
     justifyContent: "center",
-    ...shadows.cardHover,
   },
   promptText: {
-    fontSize: 24,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 20,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
     textAlign: "center",
-    lineHeight: 32,
+    lineHeight: 28,
   },
   actionButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
-    ...shadows.button,
   },
   actionButtonText: {
-    fontSize: 18,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 16,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
   menuContent: {
     gap: 8,
@@ -192,43 +188,42 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   menuItemText: {
-    fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 18,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   modalContent: {
     alignItems: "center",
     gap: 16,
   },
   modalTitle: {
-    fontSize: 24,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 22,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
   },
   modalText: {
-    fontSize: 18,
-    fontFamily: "Caveat_500Medium",
-    color: colors.mutedForeground,
+    fontSize: 16,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.7)",
     textAlign: "center",
   },
   modalButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     paddingHorizontal: 32,
     marginTop: 8,
-    ...shadows.button,
   },
   modalButtonFlex: {
     flex: 1,
     alignItems: "center",
   },
   modalButtonText: {
-    fontSize: 18,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 16,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
   modalButtonRow: {
     flexDirection: "row",
@@ -237,11 +232,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   destructiveButton: {
-    backgroundColor: colors.destructive,
-    borderColor: colors.destructive,
+    backgroundColor: "rgba(220, 80, 80, 0.8)",
+    borderColor: "rgba(220, 80, 80, 0.9)",
   },
   destructiveText: {
-    color: colors.destructiveForeground,
+    color: "#FFFFFF",
   },
 });
-

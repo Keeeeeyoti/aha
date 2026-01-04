@@ -1,16 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
+import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
+  Extrapolation,
+  interpolate,
+  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
   withTiming,
-  runOnJS,
-  interpolate,
-  Extrapolation,
 } from "react-native-reanimated";
-import { colors } from "../theme";
 
 interface SwipeCardProps {
   children: React.ReactNode;
@@ -122,9 +121,8 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
   },
   hintText: {
-    fontSize: 18,
-    fontFamily: "Caveat_500Medium",
-    color: colors.mutedForeground,
+    fontSize: 14,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.5)",
   },
 });
-

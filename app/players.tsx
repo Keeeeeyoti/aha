@@ -1,28 +1,26 @@
-import { useState } from "react";
+import { Feather } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import { useEffect, useState } from "react";
 import {
-  View,
+  Pressable,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
-  Pressable,
-  StyleSheet,
-  ScrollView,
+  View,
 } from "react-native";
-import { useRouter } from "expo-router";
 import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-  withDelay,
   FadeIn,
   FadeOutLeft,
   Layout,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withSpring,
+  withTiming,
 } from "react-native-reanimated";
-import { useEffect } from "react";
 import { OrigamiBackground } from "../src/components";
-import { useSession, Player } from "../src/context/SessionContext";
-import { colors, shadows } from "../src/theme";
-import { Feather } from "@expo/vector-icons";
+import { Player, useSession } from "../src/context/SessionContext";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -108,7 +106,7 @@ export default function Players() {
 
   return (
     <View style={styles.container}>
-      <OrigamiBackground variant="calm" />
+      <OrigamiBackground variant="teal" />
 
       {/* Back button */}
       <AnimatedPressable
@@ -142,7 +140,7 @@ export default function Players() {
               <TextInput
                 style={styles.input}
                 placeholder="Add name"
-                placeholderTextColor={colors.mutedForeground}
+                placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 value={name}
                 onChangeText={(text) => updatePlayer(index, text)}
               />
@@ -151,7 +149,7 @@ export default function Players() {
                   style={styles.removeButton}
                   onPress={() => removePlayer(index)}
                 >
-                  <Feather name="x" size={20} color={colors.mutedForeground} />
+                  <Feather name="x" size={20} color="rgba(255, 255, 255, 0.6)" />
                 </Pressable>
               )}
             </View>
@@ -189,23 +187,22 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 16,
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 16,
-    ...shadows.cardHover,
   },
   backButtonText: {
     fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   title: {
-    fontSize: 32,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 28,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
     textAlign: "center",
     marginBottom: 32,
   },
@@ -220,26 +217,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   inputLabel: {
-    fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 16,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.8)",
   },
   inputWrapper: {
     position: "relative",
   },
   input: {
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingHorizontal: 16,
     paddingVertical: 12,
     paddingRight: 48,
-    fontSize: 20,
-    fontFamily: "Caveat_500Medium",
+    fontSize: 18,
+    fontFamily: "Quicksand_500Medium",
     textAlign: "center",
-    color: colors.foreground,
-    ...shadows.input,
+    color: "#FFFFFF",
   },
   removeButton: {
     position: "absolute",
@@ -249,36 +245,33 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   addButton: {
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
-    ...shadows.cardHover,
   },
   addButtonText: {
-    fontSize: 30,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 24,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   startButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
     marginTop: 16,
-    ...shadows.button,
   },
   startButtonDisabled: {
     opacity: 0.5,
   },
   startButtonText: {
-    fontSize: 20,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 17,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
 });
-

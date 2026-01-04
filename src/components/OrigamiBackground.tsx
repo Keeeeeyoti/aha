@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { gradients } from "../theme";
 
 interface OrigamiBackgroundProps {
-  variant?: "sky" | "warm" | "calm" | "sunset";
+  variant?: "teal" | "sky" | "warm" | "calm" | "sunset";
 }
 
 export function OrigamiBackground({ variant = "sky" }: OrigamiBackgroundProps) {

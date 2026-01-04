@@ -1,18 +1,16 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
-  withTiming,
-  withSequence,
   withDelay,
+  withSpring,
+  withTiming
 } from "react-native-reanimated";
-import { useEffect } from "react";
 import { OrigamiBackground } from "../src/components";
 import { useSession } from "../src/context/SessionContext";
 import { Depth as DepthType } from "../src/data/prompts";
-import { colors, shadows } from "../src/theme";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -68,7 +66,7 @@ export default function Depth() {
 
   return (
     <View style={styles.container}>
-      <OrigamiBackground variant="warm" />
+      <OrigamiBackground variant="teal" />
 
       {/* Back button */}
       <AnimatedPressable
@@ -121,23 +119,22 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 16,
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 16,
-    ...shadows.cardHover,
   },
   backButtonText: {
     fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   title: {
-    fontSize: 32,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 28,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
     marginBottom: 48,
   },
   spacer: {
@@ -148,18 +145,16 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   optionButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
-    ...shadows.button,
   },
   optionButtonText: {
-    fontSize: 24,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 20,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
 });
-

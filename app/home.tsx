@@ -11,7 +11,6 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { OrigamiBackground } from "../src/components";
-import { colors, shadows } from "../src/theme";
 
 const ahaCloud = require("../assets/images/app/ahacloud.png");
 
@@ -103,7 +102,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <OrigamiBackground variant="sky" />
+      <OrigamiBackground variant="teal" />
 
       {/* App title - top center */}
       <Animated.Text style={[styles.title, titleStyle]}>aha</Animated.Text>
@@ -113,17 +112,19 @@ export default function Home() {
         <Text style={styles.profileEmoji}>:)</Text>
       </AnimatedPressable>
 
-      {/* Logo in center */}
+      {/* Logo - independently positioned */}
       <View style={styles.logoContainer}>
         <Animated.Image
           source={ahaCloud}
           style={[styles.logo, logoStyle]}
           resizeMode="contain"
         />
-        <Animated.Text style={[styles.tagline, taglineStyle]}>
-          {"Conversations to find out\nwho's really here."}
-        </Animated.Text>
       </View>
+
+      {/* Tagline - independently positioned */}
+      <Animated.Text style={[styles.tagline, taglineStyle]}>
+        {"Conversations to find out\nwho's really here."}
+      </Animated.Text>
 
       {/* Play button */}
       <AnimatedPressable
@@ -143,12 +144,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontFamily: "Nunito_400Regular",
-    color: colors.foreground,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
     textAlign: "center",
     marginTop: 16,
     letterSpacing: 3,
-    opacity: 0.8,
+    opacity: 0.9,
   },
   profileButton: {
     position: "absolute",
@@ -157,49 +158,49 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 16,
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     alignItems: "center",
     justifyContent: "center",
-    ...shadows.cardHover,
   },
   profileEmoji: {
     fontSize: 18,
-    fontFamily: "Nunito_500Medium",
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   logoContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: -250,      // 👈 Adjust this to move CLOUD up/down
   },
   logo: {
-    width: 360,
-    height: 360,
+    width: 280,
+    height: 280,
   },
   tagline: {
     fontSize: 18,
-    fontFamily: "Nunito_400Regular",
-    color: colors.foreground,
-    marginTop: 8,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
+    marginBottom: 100,    // 👈 Adjust this to move TAGLINE up/down (from button)
     letterSpacing: 0.3,
     lineHeight: 26,
     textAlign: "center",
-    opacity: 0.75,
+    opacity: 0.85,
   },
   playButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
-    ...shadows.button,
   },
   playButtonText: {
     fontSize: 17,
-    fontFamily: "Nunito_600SemiBold",
-    color: colors.foreground,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
     letterSpacing: 0.5,
   },
 });

@@ -55,6 +55,12 @@ export const colors = {
 
 // Gradient presets for LinearGradient
 export const gradients = {
+  teal: {
+    colors: ["#8FB0B0", "#6B8E8E", "#5A7A7A"],
+    locations: [0, 0.5, 1] as [number, number, number],
+    start: { x: 0.5, y: 0 },
+    end: { x: 0.5, y: 1 },
+  },
   sky: {
     colors: [colors.aha.skyTop, colors.aha.skyMid, colors.aha.skyBottom],
     locations: [0, 0.5, 1] as [number, number, number],

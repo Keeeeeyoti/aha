@@ -1,16 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
-import { useRouter } from "expo-router";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from "react-native-reanimated";
-import { OrigamiBackground, BottomSheet, SwipeCard, SwipeHints, CloudIcon } from "../src/components";
-import { useSession } from "../src/context/SessionContext";
-import { colors, shadows } from "../src/theme";
 import { Feather } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import { useCallback, useEffect, useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import Animated from "react-native-reanimated";
+import { BottomSheet, CloudIcon, OrigamiBackground, SwipeCard, SwipeHints } from "../src/components";
+import { useSession } from "../src/context/SessionContext";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -63,7 +57,7 @@ export default function Play() {
 
   return (
     <View style={styles.container}>
-      <OrigamiBackground variant="warm" />
+      <OrigamiBackground variant="teal" />
 
       {/* Header */}
       <View style={styles.header}>
@@ -76,7 +70,7 @@ export default function Play() {
         </View>
 
         <Pressable style={styles.menuButton} onPress={() => setShowMenu(true)}>
-          <Feather name="more-horizontal" size={24} color={colors.foreground} />
+          <Feather name="more-horizontal" size={24} color="#FFFFFF" />
         </Pressable>
       </View>
 
@@ -95,7 +89,7 @@ export default function Play() {
                 style={styles.noteButton}
                 onPress={() => setShowNote(true)}
               >
-                <CloudIcon size={32} color={colors.mutedForeground} />
+                <CloudIcon size={32} color="rgba(255, 255, 255, 0.6)" />
               </Pressable>
             )}
 
@@ -203,7 +197,7 @@ export default function Play() {
       <BottomSheet isOpen={showNote} onClose={() => setShowNote(false)}>
         <View style={styles.modalContent}>
           <View style={styles.noteHeader}>
-            <CloudIcon size={24} color={colors.foreground} />
+            <CloudIcon size={24} color="#FFFFFF" />
             <Text style={styles.noteTitle}>Notes from submitter</Text>
           </View>
           <Text style={styles.noteText}>"{session.currentPrompt.note}"</Text>
@@ -231,25 +225,24 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   skipCount: {
-    fontSize: 18,
-    fontFamily: "Caveat_500Medium",
-    color: colors.mutedForeground,
+    fontSize: 14,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.6)",
   },
   playerName: {
-    fontSize: 30,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 24,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
   },
   menuButton: {
     width: 48,
     height: 48,
     borderRadius: 16,
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     alignItems: "center",
     justifyContent: "center",
-    ...shadows.cardHover,
   },
   cardArea: {
     flex: 1,
@@ -262,13 +255,12 @@ const styles = StyleSheet.create({
     maxWidth: 380,
   },
   card: {
-    backgroundColor: colors.cardOverlay,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     padding: 24,
     minHeight: 300,
-    ...shadows.cardHover,
   },
   noteButton: {
     position: "absolute",
@@ -282,11 +274,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   promptText: {
-    fontSize: 24,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 20,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
     textAlign: "center",
-    lineHeight: 32,
+    lineHeight: 28,
   },
   buttonRow: {
     flexDirection: "row",
@@ -294,18 +286,17 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     flex: 1,
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     alignItems: "center",
-    ...shadows.button,
   },
   actionButtonText: {
-    fontSize: 18,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 16,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
   menuContent: {
     gap: 8,
@@ -316,43 +307,42 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   menuItemText: {
-    fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 18,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   modalContent: {
     alignItems: "center",
     gap: 16,
   },
   modalTitle: {
-    fontSize: 24,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 22,
+    fontFamily: "Quicksand_700Bold",
+    color: "#FFFFFF",
   },
   modalText: {
-    fontSize: 18,
-    fontFamily: "Caveat_500Medium",
-    color: colors.mutedForeground,
+    fontSize: 16,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.7)",
     textAlign: "center",
   },
   modalButton: {
-    backgroundColor: colors.cardOverlay95,
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.foregroundLight,
+    borderColor: "rgba(255, 255, 255, 0.25)",
     paddingVertical: 16,
     paddingHorizontal: 32,
     marginTop: 8,
-    ...shadows.button,
   },
   modalButtonFlex: {
     flex: 1,
     alignItems: "center",
   },
   modalButtonText: {
-    fontSize: 18,
-    fontFamily: "Caveat_600SemiBold",
-    color: colors.foreground,
+    fontSize: 16,
+    fontFamily: "Quicksand_600SemiBold",
+    color: "#FFFFFF",
   },
   modalButtonRow: {
     flexDirection: "row",
@@ -361,11 +351,11 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   destructiveButton: {
-    backgroundColor: colors.destructive,
-    borderColor: colors.destructive,
+    backgroundColor: "rgba(220, 80, 80, 0.8)",
+    borderColor: "rgba(220, 80, 80, 0.9)",
   },
   destructiveText: {
-    color: colors.destructiveForeground,
+    color: "#FFFFFF",
   },
   noteHeader: {
     flexDirection: "row",
@@ -373,16 +363,15 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   noteTitle: {
-    fontSize: 20,
-    fontFamily: "Caveat_500Medium",
-    color: colors.foreground,
+    fontSize: 18,
+    fontFamily: "Quicksand_500Medium",
+    color: "#FFFFFF",
   },
   noteText: {
-    fontSize: 18,
-    fontFamily: "Caveat_500Medium",
-    color: colors.mutedForeground,
+    fontSize: 16,
+    fontFamily: "Quicksand_500Medium",
+    color: "rgba(255, 255, 255, 0.7)",
     fontStyle: "italic",
     textAlign: "center",
   },
 });
-
