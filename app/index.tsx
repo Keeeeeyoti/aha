@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { View, Image, StyleSheet, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
+import { ActivityIndicator, Image, StyleSheet, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -40,7 +40,7 @@ export default function Splash() {
       <Image
         source={loadingBg}
         style={styles.backgroundImage}
-        resizeMode="contain"
+        resizeMode="cover"
       />
 
       {/* Loading spinner at bottom */}
@@ -59,7 +59,10 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   backgroundImage: {
-    ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
     width: "100%",
     height: "100%",
   },
