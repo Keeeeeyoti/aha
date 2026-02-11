@@ -72,6 +72,17 @@ export const prompts: Prompt[] = [
     text: "What's the best advice you've ever received?",
     depth: "light",
   },
+  {
+    id: "l16",
+    text: "What is your favourite color? Why?",
+    depth: "light",
+    note: "The interpretation/meaning reveals how they see symbolism and self-expression.",
+  },
+  {
+    id: "l17",
+    text: "What's a prediction for end of this year?",
+    depth: "light",
+  },
 
   // Medium prompts
   {
@@ -129,6 +140,32 @@ export const prompts: Prompt[] = [
   },
   { id: "m14", text: "What's something you've been putting off?", depth: "medium" },
   { id: "m15", text: "What brings you peace?", depth: "medium" },
+  {
+    id: "m16",
+    text: "What's the most special question you were asked?",
+    depth: "medium",
+  },
+  {
+    id: "m17",
+    text: "What time of day feels most like 'you'?",
+    depth: "medium",
+  },
+  {
+    id: "m18",
+    text: "What object do you feel weirdly attached to?",
+    depth: "medium",
+    note: "Points to memory, security, or identity anchors.",
+  },
+  {
+    id: "m19",
+    text: "What's something you said 'yes' to that cost you something?",
+    depth: "medium",
+  },
+  {
+    id: "m20",
+    text: "Who were you trying to impress five years ago?",
+    depth: "medium",
+  },
 
   // Deep prompts
   {
@@ -198,12 +235,50 @@ export const prompts: Prompt[] = [
     depth: "deep",
     note: "Notice if they speak from concept or experience.",
   },
+  {
+    id: "d16",
+    text: "What was the most important decision in your life up to this point?",
+    depth: "deep",
+  },
+  {
+    id: "d17",
+    text: "What are the three most important milestones that led you to here today?",
+    depth: "deep",
+    note: "Jensen Huang asked Joe Rogan this question.",
+  },
+  {
+    id: "d18",
+    text: "If you are on your last day on earth, pick one exercise, one meal, one drug, and one person to see…",
+    depth: "deep",
+    note: "From Chazi.",
+  },
+  {
+    id: "d19",
+    text: "Your seven deadly sins?",
+    depth: "deep",
+  },
+  {
+    id: "d20",
+    text: "What part of your life feels unfinished?",
+    depth: "deep",
+  },
+  {
+    id: "d21",
+    text: "What's your biggest fear?",
+    depth: "deep",
+  },
+  {
+    id: "d22",
+    text: "What would you do once you retire?",
+    depth: "deep",
+    note: "Why wait to retire to enjoy this very moment? (From Chazi)",
+  },
 ];
 
 export const everyonePrompts = [
   { id: "e1", text: "Take 2 Deep breaths pls" },
-  { id: "e2", text: "Close your eyes for 10 seconds" },
-  { id: "e3", text: "Look at each person here and smile" },
+  { id: "e2", text: "Close your eyes for 10 seconds, observe the next thought that comes to your mind" },
+  { id: "e3", text: "look in the eyes of the person to your right for 10 seconds… " },
   { id: "e4", text: "Take a moment to appreciate this moment" },
 ];
 
@@ -212,22 +287,18 @@ export const punishmentPrompts = [
   { id: "p2", text: "Let the group go through your camera roll for 30 seconds" },
   { id: "p3", text: "Do your best impression of someone in this room" },
   { id: "p4", text: "Send a text to your most recent contact saying 'I've been thinking about you'" },
-  { id: "p5", text: "Let someone post anything on your social media" },
-  { id: "p6", text: "Speak in an accent of the group's choice for the next 3 rounds" },
-  { id: "p7", text: "Give a 30-second motivational speech about socks" },
-  { id: "p8", text: "Let the person to your left draw something on your hand" },
-  { id: "p9", text: "Do 10 jumping jacks while singing your favorite song" },
-  { id: "p10", text: "Call a friend and tell them you love them without any context" },
-  { id: "p11", text: "Let the group choose your phone wallpaper for a week" },
-  { id: "p12", text: "Give a genuine compliment to everyone in the room" },
-  { id: "p13", text: "Show the group your most embarrassing saved photo" },
-  { id: "p14", text: "Do your best celebrity impression and let the group guess who" },
-  { id: "p15", text: "Read your last 3 sent texts out loud" },
-  { id: "p16", text: "Let someone send a message to anyone from your phone" },
-  { id: "p17", text: "Reveal your screen time report to the group" },
-  { id: "p18", text: "Dance for 20 seconds with no music" },
-  { id: "p19", text: "Share the last thing you searched on the internet" },
-  { id: "p20", text: "Let the group pick a song and you have to sing the chorus" },
+  { id: "p5", text: "Speak in an accent of the group's choice for the next 3 rounds" },
+  { id: "p6", text: "Give a 30-second motivational speech about socks" },
+  { id: "p7", text: "Let the person to your left draw something on your hand" },
+  { id: "p8", text: "Do 10 jumping jacks while singing your favorite song" },
+  { id: "p9", text: "Call a friend and tell them you love them without any context" },
+  { id: "p10", text: "Let the group choose your phone wallpaper for a week" },
+  { id: "p11", text: "Give a genuine compliment to everyone in the room" },
+  { id: "p12", text: "Do your best celebrity impression and let the group guess who" },
+  { id: "p13", text: "Read your last 3 sent texts out loud" },
+  { id: "p14", text: "Let someone send a message to anyone from your phone" },
+  { id: "p15", text: "Dance for 20 seconds with no music" },
+  { id: "p16", text: "Share the last thing you searched on the internet" },
 ];
 
 export function getRandomPrompt(depth: Depth, usedIds: string[]): Prompt | null {
