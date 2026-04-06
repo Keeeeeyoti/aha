@@ -83,6 +83,36 @@ export const prompts: Prompt[] = [
     text: "What's a prediction for end of this year?",
     depth: "light",
   },
+  {
+    id: "l18",
+    text: "Would you like to be famous? In what way?",
+    depth: "light",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "l19",
+    text: "Before making a phone call, do you ever rehearse what you're going to say? Why?",
+    depth: "light",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "l20",
+    text: "What would constitute a 'perfect' day for you?",
+    depth: "light",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "l21",
+    text: "When did you last sing to yourself? To someone else?",
+    depth: "light",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "l22",
+    text: "If you could wake up tomorrow having gained any one quality or ability, what would it be?",
+    depth: "light",
+    note: "From Arthur Aron's 36 Questions.",
+  },
 
   // Medium prompts
   {
@@ -165,6 +195,96 @@ export const prompts: Prompt[] = [
     id: "m20",
     text: "Who were you trying to impress five years ago?",
     depth: "medium",
+  },
+  {
+    id: "m21",
+    text: "If you could live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years, which would you want?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m22",
+    text: "For what in your life do you feel most grateful?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m23",
+    text: "If you could change anything about the way you were raised, what would it be?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m24",
+    text: "Take four minutes and tell your life story in as much detail as possible.",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions. A mini-storytelling moment.",
+  },
+  {
+    id: "m25",
+    text: "If a crystal ball could tell you the truth about yourself, your life, or the future, what would you want to know?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m26",
+    text: "Is there something you've dreamed of doing for a long time? Why haven't you done it?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m27",
+    text: "What is the greatest accomplishment of your life?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m28",
+    text: "What is your most treasured memory?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m29",
+    text: "What roles do love and affection play in your life?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m30",
+    text: "How close and warm is your family? Do you feel your childhood was happier than most other people's?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m31",
+    text: "If you were going to become close friends with someone here, what would be important for them to know about you?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m32",
+    text: "Share an embarrassing moment in your life.",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m33",
+    text: "When did you last cry in front of another person? By yourself?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m34",
+    text: "What, if anything, is too serious to be joked about?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "m35",
+    text: "Your house catches fire. After saving loved ones and pets, you have time to save one item. What would it be? Why?",
+    depth: "medium",
+    note: "From Arthur Aron's 36 Questions.",
   },
 
   // Deep prompts
@@ -272,6 +392,42 @@ export const prompts: Prompt[] = [
     text: "What would you do once you retire?",
     depth: "deep",
     note: "Why wait to retire to enjoy this very moment? (From Chazi)",
+  },
+  {
+    id: "d23",
+    text: "Do you have a secret hunch about how you will die?",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "d24",
+    text: "What is your most terrible memory?",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "d25",
+    text: "If you knew you would die suddenly in one year, would you change anything about the way you are now living? Why?",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "d26",
+    text: "How do you feel about your relationship with your mother?",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "d27",
+    text: "Complete this sentence: 'I wish I had someone with whom I could share...'",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
+  },
+  {
+    id: "d28",
+    text: "Of all the people in your family, whose death would you find most disturbing? Why?",
+    depth: "deep",
+    note: "From Arthur Aron's 36 Questions.",
   },
 ];
 
